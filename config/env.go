@@ -13,6 +13,8 @@ type Config struct {
 	DBPassword string
 	DBHost     string
 	DBPort     string
+	JWTSecret  string
+	JWTExpiresIn string
 }
 
 func InitConfig() (*Config, error) {
@@ -28,6 +30,8 @@ func InitConfig() (*Config, error) {
 		DBPassword: getEnv("DB_PASSWORD", "default_password"),
 		DBHost:     getEnv("DB_HOST", "localhost"),
 		DBPort:     getEnv("DB_PORT", "5432"),
+		JWTSecret:  getEnv("JWT_SECRET", "your_jwt_secret_key"),
+		JWTExpiresIn: getEnv("JWT_EXPIRES_IN", "1h"),
 	}, nil
 }
 

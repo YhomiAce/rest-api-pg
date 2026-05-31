@@ -28,7 +28,7 @@ func main() {
 		log.Fatalf("Failed to initialize database: %v\n", err)
 	}
 
-	server := api.NewAPIServer(":8080")
+	server := api.NewAPIServer(":8080", dbConn, cfg)
 	if err := server.Start(); err != nil {
 		log.Fatalf("Failed to start API server: %v\n", err)
 	}
